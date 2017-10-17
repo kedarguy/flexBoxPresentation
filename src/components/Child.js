@@ -11,7 +11,10 @@ const divStyle = (props) => ({
     border: '5px solid black',
     margin: '10px',
     minWidth: '100px',
-    minHeight: '100px'
+    minHeight: '100px',
+    alignSelf: props.theme[`child${props.name}`]['alignSelf'],
+    order: props.theme[`child${props.name}`]['order'],
+    flex: props.theme[`child${props.name}`]['flex'],
 
   });
 const StyledDiv = createComponent(divStyle)

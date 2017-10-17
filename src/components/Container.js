@@ -44,6 +44,20 @@ class Container extends Component {
     justifyContent: 'center',
     alignItems: 'center',
     alignContent: 'center',
+    // Child Styles section in state
+    currChildStyleModifier: 'A',
+    ChildAAlignSelf: 'auto',
+    ChildAFlex: 'none',
+    ChildAOrder: 0,
+    ChildBAlignSelf: 'auto',
+    ChildBFlex: 'none',
+    ChildBOrder: 0,
+    ChildCAlignSelf: 'auto',
+    ChildCFlex: 'none',
+    ChildCOrder: 0,
+    ChildDAlignSelf: 'auto',
+    ChildDFlex: 'none',
+    ChildDOrder: '0',
 
   };
   this.handleInputChange = this.handleInputChange.bind(this);
@@ -68,15 +82,34 @@ handleInputChange(event) {
       justifyContent: this.state.justifyContent,
       alignItems: this.state.alignItems,
       alignContent: this.state.alignContent,
-      test: this.state.test,
-    }
+          }
 
     const theme = {
       parent: {
         bgColor: this.state.bgColorParent,
         ...(this.state.isDisplayFlex ?  flexObj : {}),
-
       },
+        childA: {
+          alignSelf: this.state.ChildAAlignSelf,
+          flex: this.state.ChildAFlex,
+          order: this.state.ChildAOrder
+        },
+        childB: {
+          alignSelf: this.state.ChildBAlignSelf,
+          flex: this.state.ChildBFlex,
+          order: this.state.ChildBOrder
+        },
+        childC: {
+          alignSelf: this.state.ChildCAlignSelf,
+          flex: this.state.ChildCFlex,
+          order: this.state.ChildCOrder
+        },
+        childD: {
+          alignSelf: this.state.ChildDAlignSelf,
+          flex: this.state.ChildDFlex,
+          order: this.state.ChildDOrder
+        },
+
     }
     return (
         <StyledSection>
@@ -124,17 +157,15 @@ handleInputChange(event) {
                   onChange={this.handleInputChange}
                   value={this.state.value}
                   name="alignItems"
-                  options={[{name: 'center'}, {name: 'flex-start'}, {name: 'flex-end'},{name: 'baseline'},{name: 'space-around'},{name: 'strech'} ]}
+                  options={[{name: 'center'}, {name: 'flex-start'}, {name: 'flex-end'},{name: 'baseline'},{name: 'space-around'},{name: 'stretch'} ]}
                 />
 
                 <DropDown
                   onChange={this.handleInputChange}
                   value={this.state.value}
                   name="alignContent"
-                  options={[{name: 'center'}, {name: 'flex-start'}, {name: 'flex-end'},{name: 'space-between'},{name: 'space-around'},{name: 'strech'} ]}
+                  options={[{name: 'center'}, {name: 'flex-start'}, {name: 'flex-end'},{name: 'space-between'},{name: 'space-around'},{name: 'stretch'} ]}
                 />
-
-
               </StyledInputSection>
             :
             undefined }
@@ -151,7 +182,37 @@ handleInputChange(event) {
             <h2>
               Child Styles
             </h2>
+
+            <DropDown
+              onChange={this.handleInputChange}
+              value={this.state.value}
+              name="currChildStyleModifier"
+              options={[{name: 'A'}, {name: 'B'}, {name: 'C'},{name: 'D'} ]}
+            />
+
+            <DropDown
+              onChange={this.handleInputChange}
+              value={this.state.value}
+              name={`Child${this.state.currChildStyleModifier}AlignSelf`}
+              options={[{name: 'auto'}, {name: 'flex-start'}, {name: 'flex-end'},{name: 'center'},{name: 'baseline'},{name: 'stretch'} ]}
+            />
+
+            <DropDown
+              onChange={this.handleInputChange}
+              value={this.state.value}
+              name={`Child${this.state.currChildStyleModifier}Flex`}
+              options={[{name: 'none'}, {name: 1}, {name: 2},{name: 3},{name: 5}]}
+            />
+            <DropDown
+              onChange={this.handleInputChange}
+              value={this.state.value}
+              name={`Child${this.state.currChildStyleModifier}Order`}
+              options={[{name: 0}, {name: 1}, {name: 2},{name: 3} ,{name: 4} ,{name: 5},{name: -1},{name: -2},{name: -3},{name: -4},{name: -5}]}
+            />
+
+
           </StyledInputSection>
+
 
         </StyledSection>
     );

@@ -47,6 +47,7 @@ bgColor: 'pink'
             return (
               <Child
                 key={child.name}
+                name={child.name}
                 bgColor={child.bgColor}
               >
                 {child.name}
