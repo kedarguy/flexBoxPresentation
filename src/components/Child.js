@@ -9,7 +9,6 @@ const divStyle = (props) => ({
     backgroundColor: props.bgColor,
     padding: '10px',
     border: '5px solid black',
-    margin: '10px',
     minWidth: '100px',
     minHeight: '100px',
     alignSelf: props.theme[`child${props.name}`]['alignSelf'],

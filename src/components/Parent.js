@@ -6,7 +6,6 @@ import Child from './Child'
 
 const divStyle = ({theme}) => ({
   backgroundColor: theme.parent.bgColor,
-  padding: '10px',
   minHeight: '300px',
   width: '100%',
   border: '5px solid black',

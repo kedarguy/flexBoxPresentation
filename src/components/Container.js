@@ -70,6 +70,7 @@ handleInputChange(event) {
 
   this.setState({
     [name]: value
+
   });
 }
 
@@ -192,20 +193,20 @@ handleInputChange(event) {
 
             <DropDown
               onChange={this.handleInputChange}
-              value={this.state.value}
+              value={this.state[`Child${this.state.currChildStyleModifier}AlignSelf`]}
               name={`Child${this.state.currChildStyleModifier}AlignSelf`}
               options={[{name: 'auto'}, {name: 'flex-start'}, {name: 'flex-end'},{name: 'center'},{name: 'baseline'},{name: 'stretch'} ]}
             />
 
             <DropDown
               onChange={this.handleInputChange}
-              value={this.state.value}
+              value={this.state[`Child${this.state.currChildStyleModifier}Flex`]}
               name={`Child${this.state.currChildStyleModifier}Flex`}
               options={[{name: 'none'}, {name: 1}, {name: 2},{name: 3},{name: 5}]}
             />
             <DropDown
               onChange={this.handleInputChange}
-              value={this.state.value}
+              value={this.state[`Child${this.state.currChildStyleModifier}Order`]}
               name={`Child${this.state.currChildStyleModifier}Order`}
               options={[{name: 0}, {name: 1}, {name: 2},{name: 3} ,{name: 4} ,{name: 5},{name: -1},{name: -2},{name: -3},{name: -4},{name: -5}]}
             />
